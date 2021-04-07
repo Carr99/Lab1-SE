@@ -19,7 +19,7 @@ public class Person {
 
 //    returns the persons name
     public String getName() {
-        return name;
+        return "";
     }
 
 //    Sets a new name for the person
