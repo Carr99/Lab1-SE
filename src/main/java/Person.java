@@ -1,3 +1,5 @@
+package main.java;
+
 // Model class of a person
 public class Person {
 
