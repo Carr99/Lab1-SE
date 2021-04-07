@@ -1,64 +1,69 @@
 import main.java.Person;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Test;
+import org.junit.Before;
 
-class PersonTest {
+import static org.junit.Assert.*;
+
+public class PersonTest {
+
     private String name;
     private int age;
-    private Person person;
+    private main.java.Person person;
 
-    @BeforeEach
-    void setup(){
-        name = "John";
+    @Before
+    public void setup() {
+        name = "john";
         age = 34;
         person = new Person(name, age);
     }
+
     @Test
-    void constructor(){
+    public void constructor() {
         age = -1;
         int expectedAge = 0;
-        person = new Person(name, age);
-        Assertions.assertEquals(expectedAge, person.getAge());
-    }
-    @Test
-    void getName() {
-        String returnedName = person.getName();
-        Assertions.assertEquals(name, returnedName);
+        person = new main.java.Person(name, age);
+        assertEquals(expectedAge, person.getAge());
     }
 
     @Test
-    void setName() {
+    public void getName() {
+        String returnedName = person.getName();
+        assertEquals(name, returnedName);
+    }
+
+    @Test
+    public void setName() {
         String newName = "Conny";
         person.setName(newName);
-        Assertions.assertEquals(newName, person.getName());
+        assertEquals(newName, person.getName());
     }
 
     @Test
-    void getAge() {
+    public void getAge() {
         int returnedAge = person.getAge();
-        Assertions.assertEquals(age, returnedAge);
+        assertEquals(age, returnedAge);
     }
 
     @Test
-    void setAge() {
+    public void setAge() {
         int newAge = 63;
         person.setAge(newAge);
-        Assertions.assertEquals(newAge, person.getAge());
+        assertEquals(newAge, person.getAge());
     }
+
     @Test
-    void setAgeNegative(){
+    public void setAgeNegative() {
         int newAge = -1;
         int expectedAge = 0;
         person.setAge(newAge);
-        Assertions.assertEquals(expectedAge, person.getAge());
+        assertEquals(expectedAge, person.getAge());
     }
 
     @Test
-    void reverseName() {
+    public void reverseName() {
         StringBuilder stringBuilder = new StringBuilder();
         String reversed = stringBuilder.append(name).reverse().toString();
-        Assertions.assertEquals(reversed, person.reverseName(name));
+        assertEquals(reversed, person.reverseName(name));
 
     }
 }
